@@ -4,6 +4,11 @@ import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
+import com.team2.travelplanner.entity.Customer;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
     private String message;
@@ -13,13 +18,18 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
+        response.setContentType("application/json");
+        ObjectMapper mapper = new ObjectMapper();
+        Customer customer= new Customer();
+        customer.setEmail("sun@laioffer.com");
+        customer.setPassword("123456");
+        customer.setFirstName("rick");
+        customer.setLastName("sun");
+        customer.setEnabled(true);
 
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+        response.getWriter().print(mapper.writeValueAsString(customer));
+
+
     }
 
     public void destroy() {
