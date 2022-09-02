@@ -13,9 +13,7 @@ function App() {
     return (
         <div className="App">
             <Header/>
-
             <Map />
-
             <Footer/>
         </div>
 
