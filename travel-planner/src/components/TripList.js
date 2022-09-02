@@ -1,10 +1,17 @@
-import React from 'react';
+import { Card } from 'antd';
 
 
+import React, {Component} from 'react';
 
-
-function TripList () {
-
+class TripList extends Component {
+    render() {
+        return (
+            <div >
+                Hello
+            </div>
+        );
+    }
 }
 
 export default TripList;
+
