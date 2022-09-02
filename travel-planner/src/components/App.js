@@ -6,19 +6,22 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Map from "./Map";
 import Header from "./Header";
 import Footer from "./Footer";
+import Main from "./Main"
 
 function App() {
     // 2. Wrap ChakraProvider at the root of your app
     return (
         <div className="App">
             <Header/>
-            <ChakraProvider>
-                <Map/>
-            </ChakraProvider>
+
+            <Map />
+
             <Footer/>
         </div>
 
     );
+
+    
 }
 
 
