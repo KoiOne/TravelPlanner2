@@ -1,1 +1,0 @@
-export const NEXT_PUBLIC_MAP_API_KEY = "AIzaSyAUyl3vzLKBasiItyl9Y_CByIu90ytzkU4";
