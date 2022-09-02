@@ -2,9 +2,10 @@ import React from 'react'
 import { GoogleMap, useLoadScript } from '@react-google-maps/api'
 import {Row} from "antd";
 
+
 function Map() {
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: process.env["NEXT_PUBLIC_MAP_API_KEY "] // ,
+        googleMapsApiKey: process.env["NEXT_PUBLIC_MAP_API_KEY"] // ,
     // ...otherOptions
     })
     if (loadError) {
