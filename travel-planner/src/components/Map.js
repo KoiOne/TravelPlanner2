@@ -1,26 +1,38 @@
-import React from 'react'
-import { GoogleMap, useLoadScript } from '@react-google-maps/api'
-import {Row} from "antd";
+import React from 'react';
+import {Component} from "react";
+import {MAP_API_KEY, center} from "../constants";
+import {GoogleMap, InfoBox, LoadScript, useJsApiLoader} from '@react-google-maps/api';
+import {Box, Flex} from '@chakra-ui/react';
 
 function Map() {
-
-    const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: process.env["NEXT_PUBLIC_MAP_API_KEY "] // ,
-        // ...otherOptions
+    const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: MAP_API_KEY,
+    libraries: ['places'],
     })
-    if (loadError) {
-        return <div>Map cannot be loaded right now, sorry.</div>
-    }
-    return MapView
-}
-function MapView() {
+
     return (
-    <GoogleMap
-        zoom = {10}
-        center={{lat : 40, lng: 74}}
-        mapContainerClassName="map-container"
-    ></GoogleMap>
-    );
+        <Flex
+            position='relative'
+            flexDirection='column'
+            alignItems='center'
+            h='100vh'
+            w='100vw'
+        >
+            <Box>
+                {/*<GoogleMap>*/}
+                {/*    center={center}*/}
+                {/*    zoom={15}*/}
+                {/*    mapContainerStyle={{ width: '100%', height: '100%' }}*/}
+                {/*    options={{*/}
+                {/*    zoomControl: false,*/}
+                {/*    streetViewControl: false,*/}
+                {/*    mapTypeControl: false,*/}
+                {/*    fullscreenControl: false,*/}
+                {/*}}*/}
+                {/*</GoogleMap>*/}
+            </Box>
+        </Flex>
+    )
 
 }
 
