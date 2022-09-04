@@ -1,7 +1,8 @@
-com/team2/travelplanner/service/CustomerService.class
-com/team2/travelplanner/HelloServlet.class
-com/team2/travelplanner/controller/SignInController.class
-com/team2/travelplanner/controller/SignUpController.class
-com/team2/travelplanner/entity/Customer.class
-com/team2/travelplanner/dao/CustomerDao.class
-com/team2/travelplanner/ApplicationConfig.class
+com\team2\travelplanner\service\CustomerService.class
+com\team2\travelplanner\entity\Authorities.class
+com\team2\travelplanner\HelloServlet.class
+com\team2\travelplanner\dao\CustomerDao.class
+com\team2\travelplanner\controller\SignInController.class
+com\team2\travelplanner\entity\Customer.class
+com\team2\travelplanner\ApplicationConfig.class
+com\team2\travelplanner\controller\SignUpController.class
