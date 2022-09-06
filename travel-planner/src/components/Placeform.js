@@ -10,23 +10,36 @@ function Placeform(props) {
 
             >
             <Form.Item
-                name = "description"
+                name = "Start"
                 label = "Start"
-                >
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please input your start!',
+                    },
+                ]}
+            >
                 <Input/>
             </Form.Item>
+
             <Form.Item
-                name = "description"
+                name = "Destination"
                 label = "Destination"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Please input your destination!',
+                    },
+                ]}
             >
                 <Input/>
             </Form.Item>
-            <Form.Item
-                name = "description"
-                label = "Date"
-            >
-                <Input/>
-            </Form.Item>
+            {/*<Form.Item*/}
+            {/*    name = "description"*/}
+            {/*    label = "Date"*/}
+            {/*>*/}
+            {/*    <Input/>*/}
+            {/*</Form.Item>*/}
         </Form>
     );
 }
