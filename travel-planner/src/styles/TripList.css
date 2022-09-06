@@ -1,0 +1,35 @@
+.day-list-box {
+    flex-direction: row;
+    border: 2px solid #ccc;
+    height: 700px;
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .day-list-card {
+    margin : 10px;
+    font-weight: bold;
+  }  
+  
+  
+  .btn-container {
+    text-align: center;
+  }
+  
+  .day-list {
+    height: 400px;
+    overflow: scroll;
+  }
+
+  .day-trip-list {
+    height: 200px;
+    overflow: scroll;
+  }
+  
+  .spin-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 335px;
+  }
+  
