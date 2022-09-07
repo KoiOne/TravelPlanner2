@@ -20,6 +20,10 @@ public class Customer implements Serializable {
 
     private boolean enabled;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(unique = true)
+    private TravelList travelList;
+
     public String getEmail() {
         return email;
     }
@@ -57,5 +61,13 @@ public class Customer implements Serializable {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public TravelList getTravelList() {
+        return travelList;
+    }
+
+    public void setTravelList(TravelList travelList) {
+        this.travelList = travelList;
     }
 }
