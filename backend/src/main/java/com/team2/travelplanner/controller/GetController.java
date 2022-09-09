@@ -2,8 +2,6 @@ package com.team2.travelplanner.controller;
 
 
 import com.team2.travelplanner.entity.TravelList;
-//import com.willcky.onlineOrder.entity.Restaurant;
-//import com.willcky.onlineOrder.service.MenuInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
