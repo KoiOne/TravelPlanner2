@@ -17,9 +17,9 @@ public class GetController {
 //    @Autowired
 //    private TraverlListService TraverlListService;
 
-    @RequestMapping(value = "/user/{userId}/List", method = RequestMethod.GET)
-    @ResponseBody
-    public List<TravelList> getList(@PathVariable("customerId") int customerId) {
+//    @RequestMapping(value = "/user/{userId}/List", method = RequestMethod.GET)
+//    @ResponseBody
+//    public List<TravelList> getList(@PathVariable("customerId") int customerId) {
 //        return traverlListService.getAllListItem(customerId);
-    }
+//    }
 }
