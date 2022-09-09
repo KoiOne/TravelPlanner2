@@ -4,6 +4,7 @@
 @import "./styles/Footer.css";
 @import "./styles/Main.css";
 @import "./styles/site-card-border-less-wrapper.css";
+@import "./styles/TripList.css";
 
 body {
   margin: 0;

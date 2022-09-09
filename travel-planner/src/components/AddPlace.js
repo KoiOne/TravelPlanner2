@@ -30,10 +30,10 @@ class AddPlace extends Component {
             <div>
                 <Button type="primary"
                         onClick={this.showModal}>
-                    Add place
+                    Add Trip
                 </Button>
                 <Modal
-                    title="Add place and date"
+                    title="Add a Trip"
                     visible={visible}
                     onOk={this.handleOk}
                     okText="Create"

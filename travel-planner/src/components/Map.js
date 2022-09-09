@@ -12,6 +12,7 @@ function Map() {
         return <div>Map cannot be loaded right now, sorry.</div>
     }
     return MapView()
+
     }
 
 function MapView() {
