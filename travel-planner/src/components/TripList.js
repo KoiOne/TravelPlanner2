@@ -68,7 +68,7 @@ class TripList extends Component {
                     className="day-list-btn"
                     type='primary'
                     onClick={this.onShowSatMap}
-                >Track</Button> 
+                >Show Map</Button> 
                 
                 </div>
                 </Col>
