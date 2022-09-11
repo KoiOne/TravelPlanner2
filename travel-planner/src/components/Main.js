@@ -1,5 +1,6 @@
 import {Component} from "react";
 import TripList from "./TripList";
+import Login from "./Login";
 import Map from "./Map";
 import {Col, Row} from "antd";
 
@@ -15,7 +16,7 @@ class Main extends Component {
 
                 </Col>
                 <Col span={16} >
-                    <Map />
+
                 </Col>
             </Row>
         )
