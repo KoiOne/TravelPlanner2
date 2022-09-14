@@ -15,7 +15,7 @@ class Main extends Component {
 
                 </Col>
                 <Col span={16} >
-                    <Map />
+                    {/*<Map />*/}
                 </Col>
             </Row>
         )

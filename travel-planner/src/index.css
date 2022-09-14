@@ -5,6 +5,7 @@
 @import "./styles/Main.css";
 @import "./styles/site-card-border-less-wrapper.css";
 @import "./styles/TripList.css";
+@import "./styles/Map.css";
 
 body {
   margin: 0;
