@@ -1,7 +1,7 @@
 import React from 'react'
-import { GoogleMap, useLoadScript } from '@react-google-maps/api'
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import {Row} from "antd";
-
+const google = window.google;
 
 function Map() {
     const { isLoaded, loadError } = useLoadScript({
@@ -16,11 +16,13 @@ function Map() {
     }
 
 function MapView() {
-    return (    <GoogleMap
-            zoom = {10}
-            center={{lat : 40.7128, lng: -74.0060}}
-            mapContainerClassName="map-container"
-        ></GoogleMap>
+
+    const center = {lat : 40.7128, lng: -74.0060}
+    return (
+        <GoogleMap zoom = {10} center={center} mapContainerClassName="map-container"
+        >
+            <Marker position={center} />
+        </GoogleMap>
     );
 
 }
