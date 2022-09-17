@@ -1,14 +1,16 @@
 import React, {useRef, useState} from 'react'
 import {Autocomplete, DirectionsRenderer, GoogleMap, Marker, useJsApiLoader} from '@react-google-maps/api'
 import { FaLocationArrow, FaTimes } from 'react-icons/fa'
-import {Button, ButtonGroup, Flex, HStack, IconButton, Input, SkeletonText, Text, Box} from "@chakra-ui/react";
+import {Button, ButtonGroup, Flex, HStack, IconButton, Input, Text, Box} from "@chakra-ui/react";
+import {GOOGLE_MAP_API} from "../constants";
 
-const google=window.google;
-const center = { lat: -34.397, lng: 150.644 };
+// Time square
+const center = { lat: 40.758896, lng: -73.985130 };
 
 function Map() {
+    //console.log(process.env)
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: process.env["NEXT_PUBLIC_MAP_API_KEY"],
+        googleMapsApiKey: GOOGLE_MAP_API,
         libraries: ['places'],
     // ...otherOptions
     })
@@ -21,18 +23,20 @@ function Map() {
     const [duration, setDuration] = useState('')
 
     /** @type React.MutableRefObject<HTMLInputElement> */
-    const originRef = useRef()
+    const originRef = useRef(null)
     /** @type React.MutableRefObject<HTMLInputElement> */
-    const destinationRef = useRef()
+    const destinationRef = useRef(null)
 
     if (!isLoaded) {
-        return <SkeletonText />
+        return <div>Map cannot be loaded right now, sorry.</div>
     }
 
     async function calculateRoute() {
+        const google=window.google;
         if (originRef.current.value === '' || destinationRef.current.value === '') {
             return
         }
+
         // eslint-disable-next-line no-undef
         const directionsService = new google.maps.DirectionsService()
         const results = await directionsService.route({
@@ -41,7 +45,9 @@ function Map() {
             // eslint-disable-next-line no-undef
             travelMode: google.maps.TravelMode.DRIVING,
         })
+        // console.log(results)
         setDirectionsResponse(results)
+        // console.log(directionsResponse)
         setDistance(results.routes[0].legs[0].distance.text)
         setDuration(results.routes[0].legs[0].duration.text)
     }
@@ -63,12 +69,13 @@ function Map() {
             h='100vh'
             w='100vw'
         >
-            <Box position='absolute' left={0} top={0} h='100%' w='100%'>
+            <Box position='relative' zIndex='1' left={0} top={0} h='100%' w='100%'>
                 {/* Google Map Box */}
                 <GoogleMap
+                    id={'map'}
                     center={center}
                     zoom={15}
-                    mapContainerStyle={{ width: '100%', height: '100%' }}
+                    mapContainerStyle={{ width: '100%', height: '100vh' }}
                     options={{
                         zoomControl: false,
                         streetViewControl: false,
@@ -127,6 +134,7 @@ function Map() {
                         icon={<FaLocationArrow />}
                         isRound
                         onClick={() => {
+                            console.log("clicked")
                             map.panTo(center)
                             map.setZoom(15)
                         }}
@@ -137,14 +145,14 @@ function Map() {
     )
 }
 
-function MapView() {
-    return (    <GoogleMap
-    zoom = {10}
-    center={{lat: 40.7128, lng: -74.0060}}
-    mapContainerClassName="map-container"
-    />
-    );
-
-}
+// function MapView() {
+//     return (    <GoogleMap
+//     zoom = {10}
+//     center={{lat: 40.7128, lng: -74.0060}}
+//     mapContainerClassName="map-container"
+//     />
+//     );
+//
+// }
 
 export default Map;

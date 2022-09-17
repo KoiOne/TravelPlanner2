@@ -5,7 +5,8 @@ import './index.css';
 import App from './components/App';
 
 import reportWebVitals from './reportWebVitals';
-
+//import 'dotenv/config' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+//dotenv.config()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // const rootElement = document.getElementById("root");
