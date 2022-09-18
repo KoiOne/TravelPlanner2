@@ -12,11 +12,8 @@ function Map() {
     const { isLoaded } = useJsApiLoader({
         googleMapsApiKey: GOOGLE_MAP_API,
         libraries: ['places'],
-    // ...otherOptions
     })
-    // if (loadError) {
-    //     return <div>Map cannot be loaded right now, sorry.</div>
-    // }
+
     const [map, setMap] = useState(/** @type google.maps.Map */ (null))
     const [directionsResponse, setDirectionsResponse] = useState(null)
     const [distance, setDistance] = useState('')
@@ -32,17 +29,20 @@ function Map() {
     }
 
     async function calculateRoute() {
+        const waypts = [];
+        waypts.push({
+            location: "Central Park",
+        })
         const google=window.google;
         if (originRef.current.value === '' || destinationRef.current.value === '') {
             return
         }
 
-        // eslint-disable-next-line no-undef
         const directionsService = new google.maps.DirectionsService()
         const results = await directionsService.route({
             origin: originRef.current.value,
             destination: destinationRef.current.value,
-            // eslint-disable-next-line no-undef
+            waypoints: waypts,
             travelMode: google.maps.TravelMode.DRIVING,
         })
         // console.log(results)
@@ -75,7 +75,7 @@ function Map() {
                     id={'map'}
                     center={center}
                     zoom={15}
-                    mapContainerStyle={{ width: '100%', height: '100vh' }}
+                    mapContainerStyle={{ width: '100%', height: '90vh' }}
                     options={{
                         zoomControl: false,
                         streetViewControl: false,
@@ -84,7 +84,7 @@ function Map() {
                     }}
                     onLoad={map => setMap(map)}
                 >
-                    <Marker position={center} />
+                    {/*<Marker position={center} />*/}
                     {directionsResponse && (
                         <DirectionsRenderer directions={directionsResponse} />
                     )}
@@ -129,16 +129,7 @@ function Map() {
                 <HStack spacing={4} mt={4} justifyContent='space-between'>
                     <Text>Distance: {distance} </Text>
                     <Text>Duration: {duration} </Text>
-                    <IconButton
-                        aria-label='center back'
-                        icon={<FaLocationArrow />}
-                        isRound
-                        onClick={() => {
-                            console.log("clicked")
-                            map.panTo(center)
-                            map.setZoom(15)
-                        }}
-                    />
+
                 </HStack>
             </Box>
         </Flex>
